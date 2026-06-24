@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>kyhyy - blog</title>
+        <style>
+            :root {
+                --width: 780px;
+                --font-main: Arial, Helvetica, sans-serif;
+                --font-secondary: Arial, Helvetica, sans-serif;
+                --font-scale: 13px;
+
+                --background-color: #f5f0e8;
+                --heading-color: #1a1a1a;
+                --text-color: #1a1a1a;
+                --link-color: #2a5a8c;
+                --visited-color: #7a3a1a;
+                --code-background-color: #e8e0d0;
+                --code-color: #1a1a1a;
+                --blockquote-color: #c47a1a;
+                --border-color: #2a1a0a;
+                --nav-bg: #e8640a;
+                --nav-text: #fff;
+                --post-bg: #fdf6e8;
+                --accent: #1a1a1a;
+                --accent-border: #e8640a;
+                --gold: #c8921a;
+            }
+
+            body {
+                font-family: var(--font-secondary);
+                font-size: var(--font-scale);
+                margin: auto;
+                padding: 0;
+                max-width: var(--width);
+                background-color: var(--background-color);
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                line-height: 1.4;
+                color: var(--text-color);
+            }
+
+            a {
+                color: var(--link-color);
+                cursor: pointer;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+            a:visited {
+                color: var(--visited-color);
+            }
+
+            nav {
+                background: var(--nav-bg);
+                border-top: 1px solid var(--border-color);
+                border-bottom: 1px solid var(--border-color);
+                padding: 4px 8px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+
+            nav a {
+                margin-right: 4px;
+                color: var(--nav-text);
+            }
+            nav a::before {
+                content: "[";
+            }
+            nav a::after {
+                content: "]";
+            }
+            nav a:visited {
+                color: var(--nav-text);
+            }
+            nav a:hover {
+                text-decoration: underline;
+                color: var(--nav-text);
+            }
+
+            main {
+                padding: 6px 10px;
+                line-height: 1.5;
+            }
+
+            .section-header {
+                background: var(--accent);
+                color: #fff;
+                font-size: 11px;
+                font-weight: bold;
+                padding: 2px 8px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                font-family: monospace;
+            }
+
+            ul.blog-posts {
+                list-style-type: none;
+                padding: 4px 8px;
+            }
+
+            ul.blog-posts li {
+                display: flex;
+                align-items: baseline;
+                gap: 8px;
+                padding: 3px 0;
+                border-bottom: 1px dashed var(--border-color);
+            }
+
+            ul.blog-posts li::before {
+                content: "▶";
+                color: var(--nav-bg);
+                font-size: 10px;
+                flex-shrink: 0;
+            }
+
+            ul.blog-posts li span {
+                flex: 0 0 110px;
+                font-family: monospace;
+                font-size: 11px;
+                color: var(--gold);
+            }
+
+            ul.blog-posts li a:visited {
+                color: var(--visited-color);
+            }
+
+            .no-posts {
+                font-family: monospace;
+                color: var(--gold);
+                font-size: 12px;
+                padding: 6px 8px;
+            }
+
+            footer {
+                padding: 8px;
+                text-align: center;
+                border-top: 1px solid var(--border-color);
+                background: var(--nav-bg);
+                font-size: 12px;
+                color: #fff;
+                font-weight: bold;
+            }
+            footer a {
+                color: #fff;
+            }
+            footer a:visited {
+                color: #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="index.html#about">about</a>
+            <a href="blog.html">blog</a>
+            <a href="https://github.com/kyhyy" target="_blank">github</a>
+            <a href="mailto:khajduk403@hotmail.com">email</a>
+        </nav>
+
+        <main>
+            <section>
+                <div class="section-header">// blog — all posts</div>
+                <ul class="blog-posts" id="blog-all"></ul>
+            </section>
+        </main>
+
+        <script src="posts.js"></script>
+        <script>
+            const el = document.getElementById("blog-all");
+            if (POSTS.length === 0)
+                el.outerHTML =
+                    '<p class="no-posts">// no posts here yet, stay tuned.</p>';
+            else
+                POSTS.forEach(
+                    (p) =>
+                        (el.innerHTML += `<li><span>${p.date}</span><a href="${p.url}">${p.title}</a></li>`),
+                );
+        </script>
+    </body>
+</html>
