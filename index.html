@@ -75,9 +75,18 @@
                 background: var(--nav-bg);
                 border-top: 1px solid var(--border-color);
                 border-bottom: 1px solid var(--border-color);
-                padding: 4px 8px;
+                padding: 4px 0;
                 font-size: 12px;
                 font-weight: bold;
+                width: 100vw;
+                margin-left: calc(50% - 50vw);
+                box-sizing: border-box;
+            }
+
+            .nav-inner {
+                max-width: var(--width);
+                margin: auto;
+                padding-left: 18px;
             }
 
             nav a {
@@ -315,6 +324,27 @@
                 font-family: monospace;
             }
 
+            .about-body {
+                padding: 4px 8px;
+            }
+
+            .ascii-banner {
+                font-family: monospace;
+                color: var(--nav-bg);
+                font-size: 11px;
+                line-height: 1.1;
+                margin: 2px 0;
+                white-space: pre;
+                overflow-x: auto;
+            }
+
+            .about-name {
+                font-family: monospace;
+                color: var(--heading-color);
+                font-weight: bold;
+                margin: 4px 0 8px;
+            }
+
             .no-posts {
                 font-family: monospace;
                 color: var(--gold);
@@ -325,23 +355,31 @@
     </head>
     <body>
         <nav>
-            <a href="#about">about</a>
-            <a href="blog.html">blog</a>
-            <a href="https://github.com/kyhyy" target="_blank">github</a>
-            <a href="mailto:khajduk403@hotmail.com">email</a>
+            <div class="nav-inner">
+                <a href="#about">about</a>
+                <a href="blog.html">blog</a>
+                <a href="https://github.com/kyhyy" target="_blank">github</a>
+                <a href="mailto:khajduk403@hotmail.com">email</a>
+            </div>
         </nav>
 
         <main>
             <section id="about">
                 <div class="section-header">// about</div>
-                <article>
-                    <h1>Kamil Hajduk</h1>
+                <div class="about-body">
+<pre class="ascii-banner"> _          _
+| | ___   _| |__  _   _
+| |/ / | | | '_ \| | | |
+|   &lt;| |_| | | | | |_| |
+|_|\_\\__, |_| |_|\__, |
+      |___/       |___/</pre>
+                    <p class="about-name">Kamil Hajduk — junior dev</p>
                     <p>
                         A junior dev interested in all things programming. As a
                         hobby I tinker with systems, editors, and tools - mostly
                         in Nim and Zig these days to take a break from Python.
                     </p>
-                </article>
+                </div>
             </section>
 
             <br />

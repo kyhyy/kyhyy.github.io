@@ -57,9 +57,18 @@
                 background: var(--nav-bg);
                 border-top: 1px solid var(--border-color);
                 border-bottom: 1px solid var(--border-color);
-                padding: 4px 8px;
+                padding: 4px 0;
                 font-size: 12px;
                 font-weight: bold;
+                width: 100vw;
+                margin-left: calc(50% - 50vw);
+                box-sizing: border-box;
+            }
+
+            .nav-inner {
+                max-width: var(--width);
+                margin: auto;
+                padding-left: 18px;
             }
 
             nav a {
@@ -153,10 +162,12 @@
     </head>
     <body>
         <nav>
-            <a href="index.html#about">about</a>
-            <a href="blog.html">blog</a>
-            <a href="https://github.com/kyhyy" target="_blank">github</a>
-            <a href="mailto:khajduk403@hotmail.com">email</a>
+            <div class="nav-inner">
+                <a href="index.html#about">about</a>
+                <a href="blog.html">blog</a>
+                <a href="https://github.com/kyhyy" target="_blank">github</a>
+                <a href="mailto:khajduk403@hotmail.com">email</a>
+            </div>
         </nav>
 
         <main>
