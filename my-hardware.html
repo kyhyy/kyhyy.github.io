@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>kyhyy - my hardware</title>
+        <style>
+            :root {
+                --width: 780px;
+                --font-main: Arial, Helvetica, sans-serif;
+                --font-secondary: Arial, Helvetica, sans-serif;
+                --font-scale: 13px;
+
+                --background-color: #f5f0e8;
+                --heading-color: #1a1a1a;
+                --text-color: #1a1a1a;
+                --link-color: #2a5a8c;
+                --visited-color: #7a3a1a;
+                --code-background-color: #e8e0d0;
+                --code-color: #1a1a1a;
+                --blockquote-color: #c47a1a;
+                --border-color: #2a1a0a;
+                --nav-bg: #e8640a;
+                --nav-text: #fff;
+                --post-bg: #fdf6e8;
+                --accent: #1a1a1a;
+                --accent-border: #e8640a;
+                --gold: #c8921a;
+            }
+
+            body {
+                font-family: var(--font-secondary);
+                font-size: var(--font-scale);
+                margin: auto;
+                padding: 0;
+                max-width: var(--width);
+                background-color: var(--background-color);
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                line-height: 1.4;
+                color: var(--text-color);
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: var(--font-main);
+                color: var(--heading-color);
+                font-size: 14px;
+                font-weight: bold;
+                margin: 4px 0;
+            }
+
+            h1 {
+                font-size: 16px;
+            }
+
+            a {
+                color: var(--link-color);
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+            a:visited {
+                color: var(--visited-color);
+            }
+
+            nav {
+                background: var(--nav-bg);
+                border-top: 1px solid var(--border-color);
+                border-bottom: 1px solid var(--border-color);
+                padding: 4px 0;
+                font-size: 12px;
+                font-weight: bold;
+                width: 100vw;
+                margin-left: calc(50% - 50vw);
+                box-sizing: border-box;
+            }
+
+            .nav-inner {
+                max-width: var(--width);
+                margin: auto;
+                padding-left: 18px;
+            }
+
+            nav a {
+                margin-right: 4px;
+                color: var(--nav-text);
+            }
+
+            nav a::before {
+                content: "[";
+            }
+            nav a::after {
+                content: "]";
+            }
+            nav a:visited {
+                color: var(--nav-text);
+            }
+            nav a:hover {
+                text-decoration: underline;
+                color: var(--nav-text);
+            }
+
+            strong,
+            b {
+                color: var(--heading-color);
+            }
+
+            button {
+                background: var(--gold);
+                border: 1px solid var(--border-color);
+                font-size: 12px;
+                padding: 1px 8px;
+                cursor: pointer;
+                font-family: var(--font-main);
+                color: #fff;
+                font-weight: bold;
+            }
+
+            button:hover {
+                background: #a87010;
+            }
+
+            time {
+                font-family: monospace;
+                font-style: normal;
+                font-size: 12px;
+                color: var(--gold);
+            }
+
+            main {
+                padding: 6px 10px;
+                line-height: 1.5;
+            }
+
+            .post,
+            article {
+                background: var(--post-bg);
+                border: 1px solid var(--border-color);
+                border-left: 4px solid var(--nav-bg);
+                display: inline-block;
+                padding: 4px 8px;
+                margin: 4px 0;
+                max-width: 100%;
+            }
+
+            blockquote {
+                border-left: none;
+                color: var(--blockquote-color);
+                padding-left: 0;
+                font-style: normal;
+                margin: 0;
+            }
+
+            blockquote p::before {
+                content: "> ";
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 12px;
+            }
+
+            td,
+            th {
+                padding: 2px 6px;
+                border: 1px solid var(--border-color);
+            }
+
+            th {
+                width: 80px;
+                background: var(--nav-bg);
+                color: #fff;
+                font-weight: bold;
+            }
+
+            hr {
+                border: none;
+                border-top: 1px solid var(--border-color);
+                margin: 6px 0;
+            }
+
+            img {
+                max-width: 100%;
+                border: 2px solid var(--border-color);
+            }
+
+            code {
+                font-family: monospace;
+                padding: 1px 3px;
+                background-color: var(--code-background-color);
+                color: var(--code-color);
+                border-radius: 0;
+                font-size: 12px;
+                border: 1px solid var(--border-color);
+            }
+
+            .highlight,
+            .code {
+                padding: 4px 8px;
+                background-color: var(--code-background-color);
+                color: var(--code-color);
+                border-radius: 0;
+                border: 1px solid var(--border-color);
+                margin-block-start: 0.5em;
+                margin-block-end: 0.5em;
+                overflow-x: auto;
+                font-size: 12px;
+            }
+
+            footer {
+                padding: 8px;
+                text-align: center;
+                border-top: 1px solid var(--border-color);
+                background: var(--nav-bg);
+                font-size: 12px;
+                color: #fff;
+                font-weight: bold;
+            }
+
+            footer a {
+                color: #fff;
+            }
+            footer a:visited {
+                color: #ddd;
+            }
+
+            .title:hover {
+                text-decoration: none;
+            }
+
+            .title h1 {
+                background: var(--accent);
+                color: #fff;
+                text-align: center;
+                padding: 10px 8px;
+                font-size: 22px;
+                font-family: "Times New Roman", serif;
+                border-bottom: none;
+                margin: 0;
+                letter-spacing: 1px;
+            }
+
+            ul.blog-posts {
+                list-style-type: none;
+                padding: 4px 8px;
+            }
+
+            ul.blog-posts li {
+                display: flex;
+                align-items: baseline;
+                gap: 8px;
+                padding: 3px 0;
+                border-bottom: 1px dashed var(--border-color);
+            }
+
+            ul.blog-posts li::before {
+                content: "▶";
+                color: var(--nav-bg);
+                font-size: 10px;
+                flex-shrink: 0;
+            }
+
+            ul.blog-posts li span {
+                flex: 0 0 110px;
+                font-family: monospace;
+                font-size: 11px;
+                color: var(--gold);
+            }
+
+            ul.blog-posts li a:visited {
+                color: var(--visited-color);
+            }
+
+            /* Projects */
+            .projects-list {
+                list-style: none;
+                padding: 4px 8px;
+                margin: 0;
+            }
+
+            .projects-list li {
+                padding: 5px 0;
+                border-bottom: 1px dashed var(--border-color);
+                display: flex;
+                gap: 8px;
+                align-items: baseline;
+            }
+
+            .projects-list li::before {
+                content: "▶";
+                color: var(--nav-bg);
+                font-size: 10px;
+                flex-shrink: 0;
+            }
+
+            .projects-list li:last-child {
+                border-bottom: none;
+            }
+
+            .project-lang {
+                font-family: monospace;
+                font-size: 11px;
+                color: var(--gold);
+                flex-shrink: 0;
+            }
+
+            /* Section headers */
+            .section-header {
+                background: var(--accent);
+                color: #fff;
+                font-size: 11px;
+                font-weight: bold;
+                padding: 2px 8px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                font-family: monospace;
+            }
+
+            .about-body {
+                padding: 4px 8px;
+            }
+
+            .ascii-banner {
+                font-family: monospace;
+                color: var(--nav-bg);
+                font-size: 11px;
+                line-height: 1.1;
+                margin: 2px 0;
+                white-space: pre;
+            }
+
+            .about-name {
+                font-family: monospace;
+                color: var(--heading-color);
+                font-weight: bold;
+                margin: 4px 0 8px;
+            }
+
+            .no-posts {
+                font-family: monospace;
+                color: var(--gold);
+                font-size: 12px;
+                padding: 6px 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-inner">
+                <a href="index.html#about">about</a>
+                <a href="blog.html">blog</a>
+                <a href="my-hardware.html">my hardware</a>
+                <a href="https://github.com/kyhyy" target="_blank">github</a>
+                <a href="mailto:khajduk403@hotmail.com">email</a>
+            </div>
+        </nav>
+
+        <main>
+            <section>
+                <div class="section-header">// Terra (desktop)</div>
+                <div class="about-body">
+                    <table>
+                        <tr><th>OS</th><td>Arch Linux</td></tr>
+                        <tr><th>CPU</th><td>AMD Ryzen 7 7800X3D</td></tr>
+                        <tr><th>GPU</th><td>AMD Radeon RX 7800 XT</td></tr>
+                        <tr><th>RAM</th><td>32 GB</td></tr>
+                        <tr><th>Storage</th><td>~950 GB (root + /home)</td></tr>
+                        <tr><th>Display</th><td>27" 2560x1440, 144 Hz</td></tr>
+                    </table>
+                    <p>My main machine for coding, gaming and hosting Bonsai 2 Ternary as my local LLM.</p>
+                </div>
+            </section>
+
+            <br />
+
+            <section>
+                <div class="section-header">// Pluto (laptop)</div>
+                <div class="about-body">
+                    <table>
+                        <tr><th>Model</th><td>Lenovo ThinkPad X280</td></tr>
+                        <tr><th>OS</th><td>Arch Linux (Xfce)</td></tr>
+                        <tr><th>CPU</th><td>Intel Core i7-8550U</td></tr>
+                        <tr><th>GPU</th><td>Intel UHD 620</td></tr>
+                        <tr><th>RAM</th><td>16 GB</td></tr>
+                        <tr><th>Display</th><td>12.5" 1920x1080</td></tr>
+                    </table>
+                    <p>Small laptop for times when I have to leave the house.</p>
+                </div>
+            </section>
+
+            <br />
+
+            <section>
+                <div class="section-header">// Luna (home server)</div>
+                <div class="about-body">
+                    <table>
+                        <tr><th>Board</th><td>MSI MS-7817</td></tr>
+                        <tr><th>OS</th><td>NixOS 25.05</td></tr>
+                        <tr><th>CPU</th><td>Intel Core i5-4460</td></tr>
+                        <tr><th>GPU</th><td>NVIDIA GeForce GTX 970</td></tr>
+                        <tr><th>RAM</th><td>8 GB</td></tr>
+                        <tr><th>Storage</th><td>120 GB SSD</td></tr>
+                    </table>
+                    <p>Headless home server, configured declaratively with NixOS. Made out of "trash" that I either found or took from people that didn't need it.</p>
+                </div>
+            </section>
+
+            <br />
+
+            <section>
+                <div class="section-header">// ISS (raspberry pi)</div>
+                <div class="about-body">
+                    <table>
+                        <tr><th>Model</th><td>Raspberry Pi 3 Model B+</td></tr>
+                        <tr><th>OS</th><td>Debian 13 (Trixie), aarch64</td></tr>
+                        <tr><th>CPU</th><td>Broadcom BCM2837, 4 cores @ 1.4 GHz</td></tr>
+                        <tr><th>RAM</th><td>1 GB</td></tr>
+                        <tr><th>Storage</th><td>~256 GB</td></tr>
+                    </table>
+                    <p>Always-on box that currently hosts a sharkord instance for a small community of around 10 people.</p>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
